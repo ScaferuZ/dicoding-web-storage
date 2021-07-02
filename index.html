@@ -3,38 +3,52 @@
   <head>
     <meta charset="UTF-8" />
     <title>Bookshelf</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./styles/style.css" />
   </head>
   <body>
     <header>
       <h1>Bookshelf</h1>
     </header>
-    <!-- Search book section -->
-    <section id="searchBook">
-      <div class="wrapper">
-        <div class="searchWrapper">
-          <h2>Search your book.</h2>
-          <input type="search" name="bookSearch" id="bookSearch" value="" />
-          <div class="contentWrapper">
-            <div class="content">
-              <h3 id="bookName">Elon Musk</h3>
-              <p id="bookAuthor">Ashlee Vance</p>
-              <p id="bookDate">1999</p>
+
+    <div class="topSection">
+      <!-- Search book section -->
+      <section id="searchBook">
+        <div class="wrapper">
+          <div class="searchWrapper">
+            <h2>Search your book.</h2>
+            <input
+              type="search"
+              name="bookSearch"
+              class="searchInput"
+              id="bookSearch"
+              value=""
+            />
+            <div class="content_wrapper">
+              <div class="content__wrapper">
+                <div class="content">
+                  <h3 id="bookName">Elon Musk</h3>
+                  <p id="bookAuthor">Ashlee Vance</p>
+                  <p id="bookDate">1999</p>
+                  <button id="bookDetail">Detail</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- Add book section -->
-    <section id="addBook">
-      <div class="wrapper">
-        <h2>Add your book</h2>
-        <input type="search" name="bookName" id="bookName" value="" />
-        <input type="search" name="authorName" id="bookName" value="" />
-        <input type="search" name="bookDate" id="bookName" value="" />
-        <button>Finished</button>
-        <button>Not finished</button>
-      </div>
-    </section>
+      </section>
+      <!-- Add book section -->
+      <section id="addBook">
+        <div class="wrapper">
+          <h2>Add your book</h2>
+          <input type="search" name="bookName" id="bookName" value="" />
+          <input type="search" name="authorName" id="bookName" value="" />
+          <input type="search" name="bookDate" id="bookName" value="" />
+          <button>Finished</button>
+          <button>Not finished</button>
+        </div>
+      </section>
+    </div>
     <!-- book done reading section -->
     <section id="doneReading">
       <div class="wrapper">

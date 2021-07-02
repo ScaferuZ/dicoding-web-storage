@@ -1,0 +1,107 @@
+/* fonts */
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  max-width: 834px;
+  margin: auto;
+  font-family: Lato;
+}
+
+/* components */
+:root {
+  --color-main: #e0aa48;
+  --color-secondary: #f1f1f1;
+}
+
+input {
+  all: unset;
+  width: 23.875rem;
+  height: 2.5rem;
+  border-radius: 10px;
+  background-color: var(--color-secondary);
+}
+
+button {
+  all: unset;
+  width: 7.813rem;
+  height: 1.875rem;
+  border-radius: 10px;
+  background-color: #f4c165;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+/* #contents */
+
+.content_wrapper {
+  display: flex;
+  border-radius: 10px;
+  height: 11rem;
+  width: 23.875rem;
+  justify-content: center;
+  margin-top: 1.25rem;
+  background-color: var(--color-secondary);
+  color: #422b02;
+}
+
+.content__wrapper {
+  width: 22.438rem;
+  height: 9.3rem;
+  border-radius: 10px;
+  margin: 12px;
+  background-color: var(--color-main);
+}
+
+.content {
+  padding: 5px 15px;
+}
+
+#bookName {
+  font-size: 2.25rem;
+  margin-bottom: 4px;
+}
+
+#bookAuthor,
+#bookDate {
+  font-size: 1.5rem;
+}
+
+/* header start */
+
+header h1 {
+  color: var(--color-main);
+  margin: 2rem 0;
+  text-align: center;
+  font-size: 4rem;
+}
+
+/* top section */
+
+.topSection {
+  display: flex;
+}
+
+/* search section */
+
+.searchWrapper h2 {
+  font-size: 3rem;
+  margin-bottom: 1.25rem;
+}
+
+#bookDetail {
+  margin-left: 13rem;
+  margin-bottom: 3rem;
+}
+
+/* add book section */
+
+#addBook {
+  margin-left: 5rem;
+}
