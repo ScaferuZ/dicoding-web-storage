@@ -52,6 +52,7 @@ button {
 }
 
 .content__wrapper {
+  display: relative;
   width: 22.438rem;
   height: 9.3rem;
   border-radius: 10px;
@@ -91,7 +92,7 @@ header h1 {
 /* search section */
 
 .searchWrapper h2 {
-  font-size: 3rem;
+  font-size: 2.75rem;
   margin-bottom: 1.25rem;
 }
 
@@ -104,4 +105,53 @@ header h1 {
 
 #addBook {
   margin-left: 5rem;
+}
+
+#addBook h2 {
+  text-align: right;
+  font-size: 2.75rem;
+}
+
+.addBookDetail > input {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));
+}
+.bookCheck > button {
+  width: 11.188rem;
+  height: 2.5rem;
+  border: 2px solid var(--color-secondary);
+  margin-top: 1.25rem;
+  color: white;
+}
+
+.bookIsFinished {
+  background-color: #8a813e;
+}
+
+.bookIsNotFinished {
+  float: right;
+  background-color: #76321f;
+}
+
+/* bottom section start */
+
+.bottomSection {
+  display: flex;
+  margin-top: 3.75rem;
+}
+
+#doneReading h2 {
+  font-size: 2.75rem;
+}
+
+#doneReading > .wrapper > .content_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 34.375rem;
+}
+
+.content_wrapper > .content__wrapper > .content {
+  margin-bottom: 3rem;
 }
