@@ -13,11 +13,14 @@ body {
   margin: auto;
   font-family: Lato;
 }
-
 /* components */
 :root {
   --color-main: #e0aa48;
   --color-secondary: #f1f1f1;
+}
+
+h2 {
+  font-size: 2rem;
 }
 
 input {
@@ -26,132 +29,91 @@ input {
   height: 2.5rem;
   border-radius: 10px;
   background-color: var(--color-secondary);
+  padding: 3px 15px;
+  margin-bottom: 1.25rem;
 }
 
 button {
   all: unset;
-  width: 7.813rem;
-  height: 1.875rem;
-  border-radius: 10px;
-  background-color: #f4c165;
+  width: 11.188rem;
+  height: 2.5rem;
   text-align: center;
   font-size: 1.5rem;
 }
 
-/* #contents */
-
-.content_wrapper {
-  display: flex;
-  border-radius: 10px;
-  height: 11rem;
-  width: 23.875rem;
-  justify-content: center;
-  margin-top: 1.25rem;
-  background-color: var(--color-secondary);
-  color: #422b02;
+form {
+  margin-top: 2rem;
 }
 
-.content__wrapper {
-  display: relative;
-  width: 22.438rem;
-  height: 9.3rem;
-  border-radius: 10px;
-  margin: 12px;
-  background-color: var(--color-main);
-}
+/* header */
 
-.content {
-  padding: 5px 15px;
-}
-
-#bookName {
-  font-size: 2.25rem;
-  margin-bottom: 4px;
-}
-
-#bookAuthor,
-#bookDate {
-  font-size: 1.5rem;
-}
-
-/* header start */
-
-header h1 {
+header {
   color: var(--color-main);
-  margin: 2rem 0;
   text-align: center;
-  font-size: 4rem;
+  font-size: 2.125rem;
 }
 
 /* top section */
 
-.topSection {
+.topWrapper {
   display: flex;
-}
-
-/* search section */
-
-.searchWrapper h2 {
-  font-size: 2.75rem;
-  margin-bottom: 1.25rem;
-}
-
-#bookDetail {
-  margin-left: 13rem;
-  margin-bottom: 3rem;
-}
-
-/* add book section */
-
-#addBook {
-  margin-left: 5rem;
-}
-
-#addBook h2 {
-  text-align: right;
-  font-size: 2.75rem;
-}
-
-.addBookDetail > input {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));
-}
-.bookCheck > button {
-  width: 11.188rem;
-  height: 2.5rem;
-  border: 2px solid var(--color-secondary);
-  margin-top: 1.25rem;
-  color: white;
-}
-
-.bookIsFinished {
-  background-color: #8a813e;
-}
-
-.bookIsNotFinished {
-  float: right;
-  background-color: #76321f;
-}
-
-/* bottom section start */
-
-.bottomSection {
-  display: flex;
-  margin-top: 3.75rem;
-}
-
-#doneReading h2 {
-  font-size: 2.75rem;
-}
-
-#doneReading > .wrapper > .content_wrapper {
-  display: flex;
-  flex-direction: column;
+  column-gap: 2.25rem;
   justify-content: space-between;
-  height: 34.375rem;
+  margin-top: 3rem;
 }
 
-.content_wrapper > .content__wrapper > .content {
-  margin-bottom: 3rem;
+.bookDisplay {
+  width: 25.875rem;
+  height: 11rem;
+  border-radius: 10px;
+  background: var(--color-secondary);
+}
+
+.addBook > h2,
+.unfinishedBookList > h2 {
+  text-align: right;
+}
+
+.isProgress {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-finished {
+  cursor: pointer;
+  border-radius: 10px;
+  border: 2px solid #8a813e;
+  color: #8a813e;
+  font-size: 1.5rem;
+}
+
+.btn-finished:hover {
+  border-color: #524b19;
+  color: #524b19;
+}
+
+.btn-unfinished {
+  cursor: pointer;
+  border-radius: 10px;
+  border: 2px solid #76321f;
+  color: #76321f;
+  font-size: 1.5rem;
+}
+
+.btn-unfinished:hover {
+  border-color: #5b2211;
+  color: #5b2211;
+}
+
+/* bottom section */
+
+.bottomWrapper {
+  display: flex;
+  column-gap: 2.25rem;
+  justify-content: space-between;
+  margin-top: 3rem;
+}
+
+.bottomWrapper h2 {
+  margin-bottom: 2rem;
 }

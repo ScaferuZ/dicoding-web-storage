@@ -10,91 +10,52 @@
     <header>
       <h1>Bookshelf</h1>
     </header>
-    <!-- top section -->
-    <div class="topSection">
-      <!-- Search book section -->
-      <section id="searchBook">
-        <div class="wrapper">
-          <div class="searchWrapper">
-            <h2>Search your book.</h2>
-            <input
-              type="search"
-              name="bookSearch"
-              class="searchInput"
-              id="bookSearch"
-              value=""
-            />
-            <div class="content_wrapper">
-              <div class="content__wrapper">
-                <div class="content">
-                  <h3 id="bookName">Elon Musk</h3>
-                  <p id="bookAuthor">Ashlee Vance</p>
-                  <p id="bookDate">1999</p>
-                  <button id="bookDetail">Detail</button>
-                </div>
-              </div>
-            </div>
+    <!-- top section (search book & add book) -->
+    <div class="topWrapper">
+      <!-- search book -->
+      <div class="searchContainer">
+        <h2>Search your book</h2>
+        <form id="searchBook" action="#" method="post">
+          <input type="text" name="bookSearch" id="bookName" required />
+        </form>
+        <!-- When searched, book will displayed in here -->
+        <div class="bookDisplay"></div>
+      </div>
+      <!-- add book -->
+      <div class="addBook">
+        <h2>Add your book</h2>
+        <form id="addingBook" action="#" method="post">
+          <input type="text" name="bookName" id="bookName" />
+          <input type="text" name="bookAuthor" id="bookAuthor" />
+          <input
+            type="date"
+            name="dateReleaased"
+            id="dateReleaased"
+            placeholder="dd-mm-yyyy"
+          />
+          <div class="isProgress">
+            <button class="btn-finished" id="finishedBook" type="submit">
+              Finished
+            </button>
+            <button class="btn-unfinished" id="unfinishedBook" type="submit">
+              Unfinished
+            </button>
           </div>
-        </div>
-      </section>
-      <!-- Add book section -->
-      <section id="addBook">
-        <div class="wrapper">
-          <h2>Add your book</h2>
-          <div class="addBookDetail">
-            <input type="search" name="bookName" id="bookName" value="" />
-            <input type="search" name="authorName" id="bookName" value="" />
-            <input type="search" name="bookDate" id="bookName" value="" />
-            <div class="bookCheck">
-              <button class="bookIsFinished">Finished</button>
-              <button class="bookIsNotFinished">Not finished</button>
-            </div>
-          </div>
-        </div>
-      </section>
+        </form>
+      </div>
     </div>
-    <!-- bottom section -->
-    <div class="bottomSection">
-      <!-- book done reading section -->
-      <section id="doneReading">
-        <div class="wrapper">
-          <h2>Done reading</h2>
-          <div class="content_wrapper">
-            <div class="content__wrapper">
-              <div class="content">
-                <h3 id="bookName">Elon Musk</h3>
-                <p id="bookAuthor">Ashlee Vance</p>
-                <p id="bookDate">1999</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- on progress book section -->
-      <section id="onProgress">
-        <div class="wrapper">
-          <h2>On progress</h2>
-          <div class="bookWrapper">
-            <div class="contentWrapper">
-              <div class="content">
-                <h3 id="bookName">Elon Musk</h3>
-                <p id="bookAuthor">Ashlee Vance</p>
-                <p id="bookDate">1999</p>
-              </div>
-              <div class="content">
-                <h3 id="bookName">Elon Musk</h3>
-                <p id="bookAuthor">Ashlee Vance</p>
-                <p id="bookDate">1999</p>
-              </div>
-              <div class="content">
-                <h3 id="bookName">Elon Musk</h3>
-                <p id="bookAuthor">Ashlee Vance</p>
-                <p id="bookDate">1999</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <!-- bottom section (finished & unfinished books) -->
+    <div class="bottomWrapper">
+      <!-- finished book will display here -->
+      <div class="finishedBookList">
+        <h2>Done reading</h2>
+        <div class="bookDisplay" id="finishedBook"></div>
+      </div>
+      <!-- unfinished book will displayed here -->
+      <div class="unfinishedBookList">
+        <h2>On Progress</h2>
+        <div class="bookDisplay" id="unfinishedBook"></div>
+      </div>
     </div>
   </body>
 </html>
