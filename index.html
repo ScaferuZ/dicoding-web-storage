@@ -15,28 +15,53 @@
       <!-- search book -->
       <div class="searchContainer">
         <h2>Search your book</h2>
-        <form id="searchBook" action="#" method="post">
-          <input type="text" name="bookSearch" id="bookName" required />
+        <form id="form" action="#" autocomplete="off">
+          <!-- search input form -->
+          <input
+            type="text"
+            name="bookSearch"
+            id="bookSearch"
+            placeholder="Search"
+            required
+          />
         </form>
         <!-- When searched, book will displayed in here -->
-        <div class="bookDisplay"></div>
+        <div class="bookList"></div>
       </div>
       <!-- add book -->
       <div class="addBook">
         <h2>Add your book</h2>
-        <form id="addingBook" action="#" method="post">
-          <input type="text" name="bookName" id="bookName" />
-          <input type="text" name="bookAuthor" id="bookAuthor" />
+        <form id="formData" action="#" autocomplete="off">
+          <!-- enter book name here -->
+          <input
+            type="text"
+            name="bookName"
+            id="bookName"
+            placeholder="Name"
+            required
+          />
+          <!-- enter book author here -->
+          <input
+            type="text"
+            name="bookAuthor"
+            id="bookAuthor"
+            placeholder="Author"
+            required
+          />
+          <!-- enter book released date here -->
           <input
             type="date"
-            name="dateReleaased"
-            id="dateReleaased"
-            placeholder="dd-mm-yyyy"
+            name="dateReleased"
+            id="dateReleased"
+            placeholder="Date Released"
+            required
           />
           <div class="isProgress">
+            <!-- if your book is already finished, click this button -->
             <button class="btn-finished" id="finishedBook" type="submit">
               Finished
             </button>
+            <!-- if your book is unfinished, click this button -->
             <button class="btn-unfinished" id="unfinishedBook" type="submit">
               Unfinished
             </button>
@@ -49,13 +74,16 @@
       <!-- finished book will display here -->
       <div class="finishedBookList">
         <h2>Done reading</h2>
-        <div class="bookDisplay" id="finishedBook"></div>
+        <div class="bookList" id="finishedBook"></div>
       </div>
       <!-- unfinished book will displayed here -->
       <div class="unfinishedBookList">
         <h2>On Progress</h2>
-        <div class="bookDisplay" id="unfinishedBook"></div>
+        <div class="bookList" id="unfinishedBookDisplay"></div>
       </div>
     </div>
+
+    <script src="script/dom.js"></script>
+    <script src="script/script.js"></script>
   </body>
 </html>

@@ -33,6 +33,22 @@ input {
   margin-bottom: 1.25rem;
 }
 
+input:focus::placeholder {
+  color: transparent;
+}
+
+input::placeholder {
+  color: #9f9f9f;
+  transition: color 0.3s ease;
+}
+
+input[type="date"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #9f9f9f;
+}
+
 button {
   all: unset;
   width: 11.188rem;
@@ -43,6 +59,11 @@ button {
 
 form {
   margin-top: 2rem;
+}
+
+label {
+  transform: translate(0.25rem, -2rem);
+  transition: all 0.2s ease-out;
 }
 
 /* header */
@@ -62,7 +83,7 @@ header {
   margin-top: 3rem;
 }
 
-.bookDisplay {
+.bookList {
   width: 25.875rem;
   height: 11rem;
   border-radius: 10px;
