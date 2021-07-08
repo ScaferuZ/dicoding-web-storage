@@ -66,6 +66,40 @@ label {
   transition: all 0.2s ease-out;
 }
 
+.bookDisplay {
+  display: flex;
+  border-radius: 10px;
+  align-items: center;
+  background: var(--color-main);
+  color: #422b02;
+  margin: 11px 11px;
+  padding: 12px;
+}
+
+.bookList {
+  display: flex;
+  width: 25.875rem;
+  height: 20.5rem;
+  border-radius: 10px;
+  background: var(--color-secondary);
+  flex-direction: column;
+  overflow-y: auto;
+  /* height: fit-content; */
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 0;
+}
+
+/* assets */
+
+.trashButton {
+  cursor: pointer;
+  background: url(../assets/Delete.png);
+  margin-left: auto;
+}
+
 /* header */
 
 header {
@@ -81,13 +115,6 @@ header {
   column-gap: 2.25rem;
   justify-content: space-between;
   margin-top: 3rem;
-}
-
-.bookList {
-  width: 25.875rem;
-  height: 11rem;
-  border-radius: 10px;
-  background: var(--color-secondary);
 }
 
 .addBook > h2,
@@ -137,4 +164,8 @@ header {
 
 .bottomWrapper h2 {
   margin-bottom: 2rem;
+}
+
+.bookList {
+  /* height: fit-content; */
 }

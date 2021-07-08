@@ -1,8 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const submitForm = document.getElementById("formData");
-
-  submitForm.addEventListener("submit", function (event) {
+  // put the book added to the unfinished book display
+  const unfinishedButton = document.getElementById("unfinishedBook");
+  unfinishedButton.addEventListener("click", function (event) {
     event.preventDefault();
-    addBook();
+    addBookToUnfinished();
+  });
+
+  // put the book added to the finished book display
+  const finishedButton = document.getElementById("finishedBook");
+  finishedButton.addEventListener("click", function (event) {
+    event.preventDefault();
+    addBookToFinished();
   });
 });

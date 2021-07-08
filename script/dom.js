@@ -1,29 +1,40 @@
 const UNFINISHED_BOOK_LIST_ID = "unfinishedBookDisplay";
+const FINISHED_BOOK_LIST_ID = "finishedBookDisplay";
 
-function addBook() {
+// this function will work when you click the unfinished button
+function addBookToUnfinished() {
   const unfinishedBook = document.getElementById(UNFINISHED_BOOK_LIST_ID);
 
   const bookName = document.getElementById("bookName").value;
   const bookAuthor = document.getElementById("bookAuthor").value;
   const dateReleased = document.getElementById("dateReleased").value;
 
-  console.log("nama " + bookName);
-  console.log("pengarang " + bookAuthor);
-  console.log("tanggal terbit " + dateReleased);
-
-  const books = makeBook();
+  const books = makeBook(bookName, bookAuthor, dateReleased);
   unfinishedBook.append(books);
 }
 
-function makeBook() {
+// this function will work when you click the finished button
+function addBookToFinished() {
+  const finishedBook = document.getElementById(FINISHED_BOOK_LIST_ID);
+
+  const bookName = document.getElementById("bookName").value;
+  const bookAuthor = document.getElementById("bookAuthor").value;
+  const dateReleased = document.getElementById("dateReleased").value;
+
+  const books = makeBook(bookName, bookAuthor, dateReleased);
+  finishedBook.append(books);
+}
+
+// when you enter the data on the input, it will stored into those variable
+function makeBook(data_name, data_author, data_released) {
   const textName = document.createElement("h2");
-  textName.innerText = "Elon Musk";
+  textName.innerText = data_name;
 
   const textAuthor = document.createElement("p");
-  textAuthor.innerText = "Ashlee Vance";
+  textAuthor.innerText = data_author;
 
   const textReleased = document.createElement("p");
-  textReleased.innerText = "2015";
+  textReleased.innerText = data_released;
 
   const bookContent = document.createElement("div");
   bookContent.classList.add("bookInformation");
@@ -34,4 +45,14 @@ function makeBook() {
   bookContainer.append(bookContent);
 
   return bookContainer;
+}
+
+// function for button components
+function createButton(buttonTypeClass, eventListener) {
+  const button = document.createElement("button");
+  button.classList.add(buttonTypeClass);
+  button.addEventListener("click", function (event) {
+    eventListener(event);
+  });
+  return button;
 }
