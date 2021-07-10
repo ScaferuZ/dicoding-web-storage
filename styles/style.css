@@ -109,7 +109,15 @@ label {
   cursor: pointer;
   border: none;
   margin-left: auto;
-  margin-bottom: 60px;
+}
+
+.moveBookButton {
+  cursor: pointer;
+  width: 55px;
+  height: 14px;
+  background-color: #f4c165;
+  color: white;
+  margin-left: auto;
 }
 
 /* header */

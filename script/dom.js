@@ -44,6 +44,7 @@ function makeBook(data_name, data_author, data_released) {
   bookContainer.classList.add("bookDisplay");
   bookContainer.append(bookContent);
   bookContainer.append(createTrashButton());
+  bookContainer.append(createMoveButton());
   return bookContainer;
 }
 
@@ -62,9 +63,43 @@ function addTaskToCompleted(taskElement) {
   taskElement.remove();
 }
 
+// transporting book from finished to unfinished and vice versa
+function moveFinishedUnfinished(taskElement) {
+  const bookName = taskElement.querySelector(".bookInformation > h2").innerText;
+  const bookAuthorAndDate = taskElement.querySelector(
+    ".bookInformation > p"
+  ).innerText;
+
+  const changeBook = makeBook(bookName, bookAuthorAndDate);
+  const finishedToUnfinished = document.getElementById(UNFINISHED_BOOK_LIST_ID);
+  finishedToUnfinished.append(changeBook);
+
+  taskElement.remove();
+}
+
+function moveUnfinishedFinished(taskElement) {
+  const bookName = taskElement.querySelector(".bookInformation > h2").innerText;
+  const bookAuthorAndDate = taskElement.querySelector(
+    ".bookInformation > p"
+  ).innerText;
+
+  const changeBook = makeBook(bookName, bookAuthorAndDate);
+  const unfinishedToFinisihed = document.getElementById(FINISHED_BOOK_LIST_ID);
+  unfinishedToFinisihed.append(changeBook);
+
+  taskElement.remove();
+}
+
 // creating trash button
 function createTrashButton() {
   return createButton("trashButton", function (event) {
     addTaskToCompleted(event.target.parentElement);
+  });
+}
+
+// create move button
+function createMoveButton() {
+  return createButton("moveBookButton", function (event) {
+    moveFinishedUnfinished(event.target.parentElement);
   });
 }
