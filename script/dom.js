@@ -43,7 +43,7 @@ function makeBook(data_name, data_author, data_released) {
   const bookContainer = document.createElement("div");
   bookContainer.classList.add("bookDisplay");
   bookContainer.append(bookContent);
-
+  bookContainer.append(createTrashButton());
   return bookContainer;
 }
 
@@ -55,4 +55,16 @@ function createButton(buttonTypeClass, eventListener) {
     eventListener(event);
   });
   return button;
+}
+
+// deleting book from the list
+function addTaskToCompleted(taskElement) {
+  taskElement.remove();
+}
+
+// creating trash button
+function createTrashButton() {
+  return createButton("trashButton", function (event) {
+    addTaskToCompleted(event.target.parentElement);
+  });
 }
