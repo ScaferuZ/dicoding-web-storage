@@ -26,11 +26,11 @@ function addBookToFinished() {
 }
 
 // when you enter the data on the input, it will stored into those variable
-function makeBook(data_name, data_author, data_released) {
+function makeBook(data_name, data_author, data_released, isCompleted) {
   const textName = document.createElement("h2");
   textName.innerText = data_name;
 
-  const textAuthor = document.createElement("p");
+  const textAuthor = document.createElement("h4");
   textAuthor.innerText = data_author;
 
   const textReleased = document.createElement("p");
@@ -43,8 +43,14 @@ function makeBook(data_name, data_author, data_released) {
   const bookContainer = document.createElement("div");
   bookContainer.classList.add("bookDisplay");
   bookContainer.append(bookContent);
-  bookContainer.append(createTrashButton());
-  bookContainer.append(createMoveButton());
+  // bookContainer.append(createTrashButton());
+
+  if (isCompleted) {
+    // bookContainer.append(createMoveButtonFinished());
+    bookContainer.append(createTrashButton());
+  } else {
+    bookContainer.append(createMoveButtonUnfinished());
+  }
   return bookContainer;
 }
 
@@ -66,11 +72,14 @@ function addTaskToCompleted(taskElement) {
 // transporting book from finished to unfinished and vice versa
 function moveFinishedUnfinished(taskElement) {
   const bookName = taskElement.querySelector(".bookInformation > h2").innerText;
-  const bookAuthorAndDate = taskElement.querySelector(
+  const bookAuthor = taskElement.querySelector(
+    ".bookInformation > h4"
+  ).innerText;
+  const bookReleased = taskElement.querySelector(
     ".bookInformation > p"
   ).innerText;
 
-  const changeBook = makeBook(bookName, bookAuthorAndDate);
+  const changeBook = makeBook(bookName, bookAuthor, bookReleased, true);
   const finishedToUnfinished = document.getElementById(UNFINISHED_BOOK_LIST_ID);
   finishedToUnfinished.append(changeBook);
 
@@ -79,11 +88,14 @@ function moveFinishedUnfinished(taskElement) {
 
 function moveUnfinishedFinished(taskElement) {
   const bookName = taskElement.querySelector(".bookInformation > h2").innerText;
-  const bookAuthorAndDate = taskElement.querySelector(
+  const bookAuthor = taskElement.querySelector(
+    ".bookInformation > h4"
+  ).innerText;
+  const bookReleased = taskElement.querySelector(
     ".bookInformation > p"
   ).innerText;
 
-  const changeBook = makeBook(bookName, bookAuthorAndDate);
+  const changeBook = makeBook(bookName, bookAuthor, bookReleased, false);
   const unfinishedToFinisihed = document.getElementById(FINISHED_BOOK_LIST_ID);
   unfinishedToFinisihed.append(changeBook);
 
@@ -97,9 +109,15 @@ function createTrashButton() {
   });
 }
 
-// create move button
-function createMoveButton() {
-  return createButton("moveBookButton", function (event) {
+// create move button to unfinished list
+function createMoveButtonUnfinished() {
+  return createButton("moveBookButtonUnfinished", function (event) {
     moveFinishedUnfinished(event.target.parentElement);
+  });
+}
+
+function createMoveButtonFinished() {
+  return createButton("moveBookButtonFinished", function (event) {
+    moveUnfinishedFinished(event.target.parentElement);
   });
 }
