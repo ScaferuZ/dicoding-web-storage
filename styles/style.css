@@ -76,6 +76,7 @@ label {
   display: flex;
   border-radius: 10px;
   align-items: center;
+  height: 137px;
   background: var(--color-main);
   color: #422b02;
   margin: 11px 11px;
@@ -99,27 +100,41 @@ label {
 }
 
 /* assets */
-
 .trashButton {
-  background: url(../assets/Delete.png);
-  color: #422b02;
-  background-size: contain;
+  position: relative;
+  left: 8.25rem;
+  bottom: 1rem;
   width: 50px;
   height: 50px;
   cursor: pointer;
   border: none;
+  background: url(../assets/Delete.png);
+  color: #422b02;
+  background-size: contain;
   margin-left: auto;
 }
 
-.moveBookButton {
+.moveBookButtonUnfinished {
+  position: relative;
   cursor: pointer;
-  width: 55px;
-  height: 14px;
-  background-color: #f4c165;
-  color: white;
-  margin-left: auto;
+  bottom: 10rem;
+  max-width: 125px;
+  max-height: 30px;
+  top: 2.5rem;
+  background: url(../assets/moveToUnfinishedButton.png.png);
+  background-size: contain;
 }
 
+.moveBookButtonFinished {
+  position: relative;
+  cursor: pointer;
+  bottom: 10rem;
+  width: 125px;
+  height: 30px;
+  top: 2.5rem;
+  background: url(../assets/moveToFinshedButton.png);
+  background-size: contain;
+}
 /* header */
 
 header {
@@ -137,8 +152,7 @@ header {
   margin-top: 3rem;
 }
 
-.addBook > h2,
-.unfinishedBookList > h2 {
+.addBook > h2 {
   text-align: right;
 }
 
@@ -177,14 +191,23 @@ header {
 
 .bottomWrapper {
   display: flex;
+  flex-direction: column;
   column-gap: 2.25rem;
-  justify-content: space-between;
   margin-top: 3rem;
   margin-bottom: 5rem;
 }
 
 .bottomWrapper h2 {
   margin-bottom: 2rem;
+}
+
+.unfinishedBookList {
+  margin-top: 4rem;
+}
+
+.unfinishedBookList > .bookList,
+.finishedBookList > .bookList {
+  width: 100%;
 }
 
 .bookList {
