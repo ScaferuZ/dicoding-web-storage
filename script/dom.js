@@ -1,29 +1,6 @@
 const UNFINISHED_BOOK_LIST_ID = "unfinishedBookDisplay";
 const FINISHED_BOOK_LIST_ID = "finishedBookDisplay";
-
-// this function will work when you click the unfinished button
-function addBookToUnfinished() {
-  const unfinishedBook = document.getElementById(UNFINISHED_BOOK_LIST_ID);
-
-  const bookName = document.getElementById("bookName").value;
-  const bookAuthor = document.getElementById("bookAuthor").value;
-  const dateReleased = document.getElementById("dateReleased").value;
-
-  const books = makeBook(bookName, bookAuthor, dateReleased);
-  unfinishedBook.append(books);
-}
-
-// this function will work when you click the finished button
-function addBookToFinished() {
-  const finishedBook = document.getElementById(FINISHED_BOOK_LIST_ID);
-
-  const bookName = document.getElementById("bookName").value;
-  const bookAuthor = document.getElementById("bookAuthor").value;
-  const dateReleased = document.getElementById("dateReleased").value;
-
-  const books = makeBook(bookName, bookAuthor, dateReleased);
-  finishedBook.append(books);
-}
+const BOOKS_ITEMID = "itemId";
 
 // when you enter the data on the input, it will stored into those variable
 function makeBook(data_name, data_author, data_released, isCompleted) {
@@ -43,15 +20,50 @@ function makeBook(data_name, data_author, data_released, isCompleted) {
   const bookContainer = document.createElement("div");
   bookContainer.classList.add("bookDisplay");
   bookContainer.append(bookContent);
-  // bookContainer.append(createTrashButton());
+  bookContainer.append(createTrashButton());
 
   if (isCompleted) {
-    // bookContainer.append(createMoveButtonFinished());
-    bookContainer.append(createTrashButton());
-  } else {
     bookContainer.append(createMoveButtonUnfinished());
+  } else {
+    bookContainer.append(createMoveButtonFinished());
   }
   return bookContainer;
+}
+
+// this function will work when you click the unfinished button
+function addBookToUnfinished() {
+  const unfinishedBook = document.getElementById(UNFINISHED_BOOK_LIST_ID);
+
+  const title = document.getElementById("bookName").value;
+  const author = document.getElementById("bookAuthor").value;
+  const year = document.getElementById("dateReleased").value;
+
+  const book = makeBook(title, author, year, false);
+  const bookObject = composeTodoObject(title, author, year, false);
+
+  book[BOOKS_ITEMID] = bookObject.id;
+  books.push(bookObject);
+
+  unfinishedBook.append(book);
+  updateDataToStorage();
+}
+
+// this function will work when you click the finished button
+function addBookToFinished() {
+  const finishedBook = document.getElementById(FINISHED_BOOK_LIST_ID);
+
+  const title = document.getElementById("bookName").value;
+  const author = document.getElementById("bookAuthor").value;
+  const year = document.getElementById("dateReleased").value;
+
+  const book = makeBook(title, author, year, true);
+  const bookObject = composeTodoObject(title, author, year, true);
+
+  books[BOOKS_ITEMID] = bookObject.id;
+  books.push(bookObject);
+
+  finishedBook.append(book);
+  updateDataToStorage();
 }
 
 // function for button components
@@ -79,7 +91,7 @@ function moveFinishedUnfinished(taskElement) {
     ".bookInformation > p"
   ).innerText;
 
-  const changeBook = makeBook(bookName, bookAuthor, bookReleased, true);
+  const changeBook = makeBook(bookName, bookAuthor, bookReleased, false);
   const finishedToUnfinished = document.getElementById(UNFINISHED_BOOK_LIST_ID);
   finishedToUnfinished.append(changeBook);
 
@@ -95,7 +107,7 @@ function moveUnfinishedFinished(taskElement) {
     ".bookInformation > p"
   ).innerText;
 
-  const changeBook = makeBook(bookName, bookAuthor, bookReleased, false);
+  const changeBook = makeBook(bookName, bookAuthor, bookReleased, true);
   const unfinishedToFinisihed = document.getElementById(FINISHED_BOOK_LIST_ID);
   unfinishedToFinisihed.append(changeBook);
 
