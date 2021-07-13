@@ -50,7 +50,7 @@ function composeTodoObject(title, author, year, isCompleted) {
 // finding books with id
 function findBooks(booksId) {
   for (book of books) {
-    if (book.id === booksId) return todo;
+    if (book.id == booksId) return book;
   }
   return null;
 }
