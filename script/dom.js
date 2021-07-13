@@ -99,6 +99,7 @@ function moveFinishedUnfinished(taskElement) {
 }
 
 function moveUnfinishedFinished(taskElement) {
+  const unfinishedToFinisihed = document.getElementById(FINISHED_BOOK_LIST_ID);
   const bookName = taskElement.querySelector(".bookInformation > h2").innerText;
   const bookAuthor = taskElement.querySelector(
     ".bookInformation > h4"
@@ -108,10 +109,14 @@ function moveUnfinishedFinished(taskElement) {
   ).innerText;
 
   const changeBook = makeBook(bookName, bookAuthor, bookReleased, true);
-  const unfinishedToFinisihed = document.getElementById(FINISHED_BOOK_LIST_ID);
-  unfinishedToFinisihed.append(changeBook);
+  const book = findBooks(taskElement[BOOKS_ITEMID]);
+  book.isCompleted = true;
+  changeBook[BOOKS_ITEMID] = book.id;
 
+  unfinishedToFinisihed.append(changeBook);
   taskElement.remove();
+
+  updateDataToStorage();
 }
 
 // creating trash button
