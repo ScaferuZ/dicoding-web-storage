@@ -39,7 +39,7 @@ function addBookToUnfinished() {
   const year = document.getElementById("dateReleased").value;
 
   const book = makeBook(title, author, year, false);
-  const bookObject = composeTodoObject(title, author, year, false);
+  const bookObject = composeBookObject(title, author, year, false);
 
   book[BOOKS_ITEMID] = bookObject.id;
   books.push(bookObject);
@@ -57,9 +57,9 @@ function addBookToFinished() {
   const year = document.getElementById("dateReleased").value;
 
   const book = makeBook(title, author, year, true);
-  const bookObject = composeTodoObject(title, author, year, true);
+  const bookObject = composeBookObject(title, author, year, true);
 
-  books[BOOKS_ITEMID] = bookObject.id;
+  book[BOOKS_ITEMID] = bookObject.id;
   books.push(bookObject);
 
   finishedBook.append(book);
@@ -77,12 +77,18 @@ function createButton(buttonTypeClass, eventListener) {
 }
 
 // deleting book from the list
-function addTaskToCompleted(taskElement) {
+function addBookToCompleted(taskElement) {
+  const bookPosition = findBookIndex(taskElement[BOOKS_ITEMID]);
+  // hapus data yang ditemukan dalam index bookPosition
+  books.splice(bookPosition, 1);
+
   taskElement.remove();
+  updateDataToStorage();
 }
 
 // transporting book from finished to unfinished and vice versa
 function moveFinishedUnfinished(taskElement) {
+  const finishedToUnfinished = document.getElementById(UNFINISHED_BOOK_LIST_ID);
   const bookName = taskElement.querySelector(".bookInformation > h2").innerText;
   const bookAuthor = taskElement.querySelector(
     ".bookInformation > h4"
@@ -92,10 +98,14 @@ function moveFinishedUnfinished(taskElement) {
   ).innerText;
 
   const changeBook = makeBook(bookName, bookAuthor, bookReleased, false);
-  const finishedToUnfinished = document.getElementById(UNFINISHED_BOOK_LIST_ID);
-  finishedToUnfinished.append(changeBook);
+  const book = findBooks(taskElement[BOOKS_ITEMID]);
+  book.isCompleted = false;
+  changeBook[BOOKS_ITEMID] = book.id;
 
+  finishedToUnfinished.append(changeBook);
   taskElement.remove();
+
+  updateDataToStorage();
 }
 
 function moveUnfinishedFinished(taskElement) {
@@ -122,7 +132,7 @@ function moveUnfinishedFinished(taskElement) {
 // creating trash button
 function createTrashButton() {
   return createButton("trashButton", function (event) {
-    addTaskToCompleted(event.target.parentElement);
+    addBookToCompleted(event.target.parentElement);
   });
 }
 
@@ -132,7 +142,7 @@ function createMoveButtonUnfinished() {
     moveFinishedUnfinished(event.target.parentElement);
   });
 }
-
+// create move button to finished list
 function createMoveButtonFinished() {
   return createButton("moveBookButtonFinished", function (event) {
     moveUnfinishedFinished(event.target.parentElement);
