@@ -20,4 +20,16 @@ document.addEventListener("DOMContentLoaded", function () {
       addBookToFinished();
     }
   });
+
+  if (isStorageExist()) {
+    loadDataFromStorage();
+  }
+});
+
+document.addEventListener("ondatasaved", function () {
+  console.log("Data berhasil disimpan euy");
+});
+
+document.addEventListener("ondataloaded", function () {
+  refreshDataFromBooks();
 });
