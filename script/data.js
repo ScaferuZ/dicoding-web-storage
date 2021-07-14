@@ -37,7 +37,7 @@ function updateDataToStorage() {
 }
 
 // composing new books
-function composeTodoObject(title, author, year, isCompleted) {
+function composeBookObject(title, author, year, isCompleted) {
   return {
     id: +new Date(),
     title,
@@ -64,4 +64,26 @@ function findBookIndex(booksId) {
     index++;
   }
   return -1;
+}
+
+function refreshDataFromBooks() {
+  const listUnfinished = document.getElementById(UNFINISHED_BOOK_LIST_ID);
+  let listFinished = document.getElementById(FINISHED_BOOK_LIST_ID);
+
+  for (book of books) {
+    const newBook = makeBook(
+      book.title,
+      book.author,
+      book.year,
+      book.isCompleted
+    );
+
+    newBook[BOOKS_ITEMID] = book.id;
+
+    if (book.isCompleted) {
+      listFinished.append(newBook);
+    } else {
+      listUnfinished.append(newBook);
+    }
+  }
 }
