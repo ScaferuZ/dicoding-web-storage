@@ -9,63 +9,49 @@
   <body>
     <header><h1>Bookshelf</h1></header>
     <!-- top section (search book & add book) -->
-    <div class="topWrapper">
-      <!-- search book -->
-      <div class="searchContainer">
-        <h2>Search your book</h2>
-        <form id="form" action="#" autocomplete="off">
-          <!-- search input form -->
-          <input
-            type="text"
-            name="bookSearch"
-            id="bookSearch"
-            placeholder="Search"
-            required
-          />
-        </form>
-        <!-- When searched, book will displayed in here -->
-        <div class="searchedBookList"></div>
-      </div>
-      <!-- add book -->
-      <div class="addBook">
-        <h2>Add your book</h2>
-        <form id="formData" action="#" autocomplete="off">
-          <!-- enter book name here -->
-          <input
-            type="text"
-            name="bookName"
-            id="bookName"
-            placeholder="Name"
-            required
-          />
-          <!-- enter book author here -->
-          <input
-            type="text"
-            name="bookAuthor"
-            id="bookAuthor"
-            placeholder="Author"
-            required
-          />
-          <!-- enter book released date here -->
-          <input
-            type="date"
-            name="dateReleased"
-            id="dateReleased"
-            placeholder="Date Released"
-            required
-          />
-          <div class="isProgress">
-            <!-- if your book is already finished, click this button -->
-            <button class="btn-finished" id="finishedBook" type="submit">
-              Finished
-            </button>
-            <!-- if your book is unfinished, click this button -->
-            <button class="btn-unfinished" id="unfinishedBook" type="submit">
-              Unfinished
-            </button>
-          </div>
-        </form>
-      </div>
+    <div class="addBook">
+      <h2>Add your book</h2>
+      <form id="formData" action="#" autocomplete="off">
+        <!-- enter book name here -->
+        <input
+          class="bookData"
+          type="text"
+          name="bookName"
+          id="bookName"
+          placeholder="Name"
+          required
+        />
+        <!-- enter book author here -->
+        <input
+          class="bookData"
+          type="text"
+          name="bookAuthor"
+          id="bookAuthor"
+          placeholder="Author"
+          required
+        />
+        <!-- enter book released date here -->
+        <input
+          class="bookData"
+          type="text"
+          name="dateReleased"
+          id="dateReleased"
+          placeholder="Date Released"
+          pattern="\d*"
+          maxlength="4"
+          required
+        />
+        <div class="isProgress">
+          <!-- if your book is already finished, click this button -->
+          <button class="btn-finished" id="finishedBook" type="submit">
+            Finished
+          </button>
+          <!-- if your book is unfinished, click this button -->
+          <button class="btn-unfinished" id="unfinishedBook" type="submit">
+            Unfinished
+          </button>
+        </div>
+      </form>
     </div>
     <!-- bottom section (finished & unfinished books) -->
     <div class="bottomWrapper">
