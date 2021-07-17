@@ -1,5 +1,6 @@
 const UNFINISHED_BOOK_LIST_ID = "unfinishedBookDisplay";
 const FINISHED_BOOK_LIST_ID = "finishedBookDisplay";
+const SEARCHED_BOOK_LIST_ID = "searchedBookList";
 const BOOKS_ITEMID = "itemId";
 
 // when you enter the data on the input, it will stored into those variable
@@ -132,6 +133,7 @@ function moveUnfinishedFinished(taskElement) {
 // creating trash button
 function createTrashButton() {
   return createButton("trashButton", function (event) {
+    confirm("Are you sure?");
     addBookToCompleted(event.target.parentElement);
   });
 }

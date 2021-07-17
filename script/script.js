@@ -3,10 +3,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const unfinishedButton = document.getElementById("unfinishedBook");
   unfinishedButton.addEventListener("click", function (event) {
     event.preventDefault();
-    if (document.getElementById("bookName").value.length == 0) {
-      alert("Please fill the field");
+    if (confirm("Did you already add your information?")) {
+      if (document.getElementById("bookName").value.length == 0) {
+        alert("Please fill the field");
+      } else {
+        addBookToUnfinished();
+      }
     } else {
-      addBookToUnfinished();
+      alert("Please fill the field");
     }
   });
 
@@ -14,10 +18,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const finishedButton = document.getElementById("finishedBook");
   finishedButton.addEventListener("click", function (event) {
     event.preventDefault();
-    if (document.getElementById("bookName").value.length == 0) {
-      alert("Please fill the field");
+    if (confirm("Did you already add your information?")) {
+      if (document.getElementById("bookName").value.length == 0) {
+        alert("Please fill the field");
+      } else {
+        addBookToFinished();
+      }
     } else {
-      addBookToFinished();
+      alert("Please fill the field");
     }
   });
 
